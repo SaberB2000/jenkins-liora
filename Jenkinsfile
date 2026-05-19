@@ -70,7 +70,7 @@ pipeline {
     }
     post {
         always {
-            sh "Docker logout"
+            sh "docker logout"
         }
     }
 }
