@@ -34,17 +34,15 @@ pipeline {
         }
         stage('User acceptance') {
             steps {
-                input {
-                    message "Proceed to push to main"
-                    ok "Yes"
-                }
+                input message: "Proceed to push to main", ok "Yes"
+                
             }
         }
         stage('Pushing and Merging') {
             parallel {
                 stage('Pushing') {
                     environment {
-                        DOCKERHUB_CREDENTIALS = credentials($DOCKER_HUB_PASS)
+                        DOCKERHUB_CREDENTIALS = credentials('DOCKER_HUB_PASS')
                     }
                     steps{
                         sh '''
