@@ -8,7 +8,8 @@ pipeline {
     stages {
         stage('Building') {
             steps {
-                sh '''
+                sh 
+                '''
                     python3 -m venv .venv
                     . .venv/bin/activate
 
